@@ -15,23 +15,28 @@ public class Paswoord {
         combinatieNaamPaswoord2.naam = "Piet";
         combinatieNaamPaswoord2.paswoord = "puk";
 
-        out.println("Voer je gebruikersnaam in:");
+        String naamGebruiker;
+        String paswoordGebruiker;
+
         var keyboard = new Scanner(System.in);
-        String naamGebruiker = keyboard.next();
 
-        if (naamGebruiker.equals(combinatieNaamPaswoord1.naam)) {
-            out.println("Voer je paswoord in:");
-             String paswoordGebruiker = keyboard.next();
-             if (paswoordGebruiker.equals(combinatieNaamPaswoord1.paswoord)) {
-                 out.println("Je bent ingelogd.");
-             } else {
-                 out.println("Verkeerd wachtwoord!");
-             }
-        } else {
-            out.println("Onbekende gebruikersnaam!");
+        do {
+            out.println("Voer je gebruikersnaam in:");
+            naamGebruiker = keyboard.next();
+            if (!naamGebruiker.equals(combinatieNaamPaswoord1.naam)) {
+                out.println("Onbekende gebruikersnaam!");
+            }
+        } while (!naamGebruiker.equals(combinatieNaamPaswoord1.naam));
+
+            do {
+                out.println("Voer je paswoord in:");
+                paswoordGebruiker = keyboard.next();
+                if (paswoordGebruiker.equals(combinatieNaamPaswoord1.paswoord)) {
+                    out.println("Je bent ingelogd.");
+                } else {
+                    out.println("Verkeerd wachtwoord!");
+                }
+            } while (!paswoordGebruiker.equals(combinatieNaamPaswoord1.paswoord));
+            keyboard.close();
         }
-        keyboard.close();
-
-
-    }
 }
